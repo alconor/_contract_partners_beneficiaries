@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+	<data>
+		<!-- Vista Arbol: Beneficiarios de Contrato de Socios-->
+		<record id="contract_partners_beneficiaries_tree" model="ir.ui.view">
+			<field name="name">contract.partners.beneficiaries.tree</field>
+			<field name="model">contract.partners.beneficiaries</field>
+			<field name="arch" type="xml">
+				<tree string="Lista de Beneficiarios de Contratos de Socios">
+					<field name="name"/>
+					<field name="ruc"/>
+					<field name="fecha_nacimiento"/>
+					<field name="parentesco"/>
+				</tree>	
+			</field>
+		</record>
+		<!-- Vista Formulario: Beneficiarios de Contrato de Socios-->
+		<record id="contract_partners_beneficiaries_form" model="ir.ui.view">
+			<field name="name">contract.partners.beneficiaries.form</field>
+			<field name="model">contract.partners.beneficiaries</field>
+			<field name="arch" type="xml">
+				<form string="Formulario de Beneficiarios de Contratos de Socios">
+					<header>
+						<field name="name"/>
+					</header>
+					<sheet>
+						<group>
+							<field name="name"/>
+							<field name="ruc"/>
+							<field name="fecha_nacimiento"/>
+							<field name="parentesco"/>
+						</group>
+					</sheet>
+				</form>	
+			</field>
+		</record>
+		<!-- Acciones -->
+		<record id="contract_partners_beneficiaries_action" model="ir.actions.act_window">
+			<field name="name">Contract partners beneficiaries</field>
+			<field name="res_model">contract.partners.beneficiaries</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<!-- Menúes -->
+        <menuitem id="base.menu_sales"
+        	name="Sales"
+        	parent="base.menu_base_partner"
+        	sequence="1"/>
+        <menuitem action="contract_partners_beneficiaries_action"
+        	id="menu_contract_partners_beneficiaries"
+        	sequence="10"
+        	parent="base.menu_sales"/>
+	</data>
+</openerp>
