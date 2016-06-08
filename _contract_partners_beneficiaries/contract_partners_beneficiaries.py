@@ -11,7 +11,7 @@ import openerp.addons.decimal_precision as dp
 
 class contract_partners_beneficiaries(osv.osv):
     _name = 'contract.partners.beneficiaries'
-    _description = 'Formulario de Beneficiarios de Contratos de Socios'
+    _description = 'Tabla de Beneficiarios de Contratos de Socios'
     _columns = {
               'name' : fields.char('Nombre del Beneficairio',size=256,required=True,help='Nombre y Apellido del Beneficiario'),
               'ruc': fields.char('RUC', size=45),
@@ -29,3 +29,21 @@ class contract_partners_beneficiaries(osv.osv):
                                               ('10','Amigo')],'Parentesco', size=45, )
                }
     #contract_partners_beneficiaries()
+    
+    # Relacion de tabla de ceunta analitica y beneficiarios
+    # Tabla Padre:account.analytic.account
+    # Tabla Hija: contract.partners.beneficiaries
+class account_analytic_account(osv.osv):
+    _inherit = "account.analytic.account" 
+    _columns = {
+                'ruc' : fields.many2many('contract.partners.beneficiaries',
+                                              'account_analytic_account_contract_partners_beneficiaries_rel',
+                                              'account_analytic_account_id',
+                                              'ruc',
+                                              'CDIP',
+                                              store=True,
+                                              readonly=False)
+                
+                }
+    #account_analytic_account()
+    

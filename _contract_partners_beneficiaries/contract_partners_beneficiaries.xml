@@ -50,5 +50,26 @@
         	id="menu_contract_partners_beneficiaries"
         	sequence="10"
         	parent="base.menu_sales"/>
+        
+        <!-- Formulario account_analytic_account heredado mas campos nuevos -->
+        <record id="view_account_analytic_account_form_inh" model="ir.ui.view">
+            <field name="name">analytic.analytic.account.form.ihn</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form" />
+            <field name="arch" type="xml">
+     		<notebook position="inside">
+	         		<page string="Beneficiaries">
+	            		<group col="2" colspan="2">
+	                  	<separator string="Contract Parteners Beneficiaries" colspan="2"/>
+         					
+         				<field string="Nombre de Beneficiarios" name="ruc" widget="many2many_tags"
+         					placeholder="Seleccione o Cree los Beneficiarios"/>     
+         					
+	            		</group>
+	         		</page>
+	  	 	</notebook>
+	  		</field>
+   		</record>
+	<!-- Fin de archivo -->        
 	</data>
 </openerp>

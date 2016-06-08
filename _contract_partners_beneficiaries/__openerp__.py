@@ -20,7 +20,7 @@
 ##############################################################################
 {
     'name' : 'Contract Partners Beneficiaries',
-    'version' : '1.0: 2016.06.06:22:18',
+    'version' : '1.0: 2016.06.07:21:04',
     'author' : 'Alconsoft-Sistech',
     'category' : 'Contract Partners',
     'description' : """
